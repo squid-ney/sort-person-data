@@ -5,42 +5,50 @@ Created on Sun May 22 11:35:40 2022
 
 @author: Sydney
 """
-import Person
+from Person import Person
 from datetime import datetime
 
 class FileData:
+
     def __init__(self, filePath):
         self.elementList = []
+        rawFileData = []
         
-        with open(filePath) as f:
-            rawFileData = f.readlines()
-            firstLine = rawFileData[0]
-            deliminator = self.__get_deliminator(firstLine)
-            
-            for line in rawFileData:
-                personData = line.strip().split(deliminator)
-
-                lastName = personData[0]
-                firstName = personData[1]
-                gender = "" 
-                favoriteColor = ""
-                dateOfBirth = ""
-                if deliminator == " | ":
-                    gender = personData[3]
-                    favoriteColor = personData[4]
-                    dateOfBirth = personData[5]
-                elif deliminator == " ":
-                    gender = personData[3]
-                    favoriteColor = personData[5]
-                    dateOfBirth = personData[4]
-                else:
-                    gender = personData[2]
-                    favoriteColor = personData[3]
-                    dateOfBirth = personData[4]
-                
-                person = Person.Person(lastName, firstName, gender, dateOfBirth, favoriteColor)
-                self.elementList.append(person)  
+        try:
+            with open(filePath) as f:
+                rawFileData = f.readlines()
+        except FileNotFoundError:
+            print("\nError, file was not found. Please check input file path.\n")
+            raise
+        else:
             f.close()
+
+        firstLine = rawFileData[0]
+        deliminator = self.__get_deliminator(firstLine)
+                
+        for line in rawFileData:
+            personData = line.strip().split(deliminator)
+    
+            lastName = personData[0]
+            firstName = personData[1]
+            gender = "" 
+            favoriteColor = ""
+            dateOfBirth = ""
+            if deliminator == " | ":
+                gender = personData[3]
+                favoriteColor = personData[4]
+                dateOfBirth = personData[5]
+            elif deliminator == " ":
+                gender = personData[3]
+                favoriteColor = personData[5]
+                dateOfBirth = personData[4]
+            else:
+                gender = personData[2]
+                favoriteColor = personData[3]
+                dateOfBirth = personData[4]
+                    
+            person = Person(lastName, firstName, gender, dateOfBirth, favoriteColor)
+            self.elementList.append(person) 
 
     def __get_deliminator(self, firstLine):
         if "," in firstLine:
