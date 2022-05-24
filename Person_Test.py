@@ -29,7 +29,7 @@ class TestPerson(unittest.TestCase):
         self.assertEqual(person.dateOfBirth, dateOfBirth)
         self.assertEqual(person.favoriteColor, favoriteColor)
 
-    def test_creat_person_format_birth_date(self):
+    def test_create_person_format_birth_date(self):
         """
         Test date of birth is formatted when Person object is created
         """
@@ -43,7 +43,7 @@ class TestPerson(unittest.TestCase):
         
         self.assertEqual(person.dateOfBirth, expectedDateOfBirth)
         
-    def test_creat_person_format_gender_f(self):
+    def test_create_person_format_gender_f(self):
         """
         Test gender is formatted when Person object is created (Female)
         """
@@ -57,7 +57,7 @@ class TestPerson(unittest.TestCase):
         
         self.assertEqual(person.gender, expectedGender)
         
-    def test_creat_person_format_gender_m(self):
+    def test_create_person_format_gender_m(self):
         """
         Test gender is formatted when Person object is created (Male)
         """
