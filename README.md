@@ -14,7 +14,7 @@ Run the following command:
 ```bash
 python3 Sort_Person_Data_Project.py ../pathToFile
 ```
-* '../pathToFile' is the path to person data file
+* '../pathToFile' is the path to the chosen input file
 
 ## Run Tests
 Navigate to the sort-person-data/src directory
