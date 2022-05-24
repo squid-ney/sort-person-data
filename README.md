@@ -1,5 +1,9 @@
 # sort-person-data
 
+## Set Up Solution
+Unzip the sort-person-data directory
+Requires python3
+
 ## Run Solution
 Navigate into the sort-person-data project
 
