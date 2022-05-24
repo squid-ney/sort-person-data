@@ -21,5 +21,5 @@ Navigate to the sort-person-data/src directory
 
 Run the following command:
 ```bash
-python -m unittest discover -p 'Test*.py'
+python3 -m unittest discover -p 'Test*.py'
 ```
